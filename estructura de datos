@@ -1,0 +1,194 @@
+# Definición de la clase Contacto
+# Esta clase modelo un contacto individual con nombre, teléfono y correo electrónico.
+Clase  Contacto :
+    # Constructor de la clase con tres parámetros: nombre, teléfono y correo electrónico
+    def  __init__ ( self , nombre , teléfono , email ):
+        ser . nombre  =  nombre   # Asigna el nombre del contacto
+        ser . telefono  =  telefono   # Asigna el teléfono del contacto
+        ser . email  =  email   # Asigna el email del contacto
+
+# Definición de la clase Agenda
+# Esta clase maneja una colección de contactos.
+ Agenda de la clase :
+    # Constructor de la clase Agenda
+    # Inicializa la lista de contactos como vacía
+    def  __init__ ( yo mismo ):
+        ser . contactos  = []   # Lista para almacenar los objetos de tipo Contacto
+
+    # Método para agregar un nuevo contacto a la agenda
+    def  agregar_contacto ( self , contacto ):
+        ser . contactos . append ( contacto )   # Agrega el objeto contacto a la lista de contactos
+
+    # Método para mostrar todos los contactos en la agenda
+    def  mostrar_contactos ( self ):
+        para  contacto  en  uno mismo . contactos :   # Itera sobre cada contacto en la lista de contactos
+            #Imprime la información del contacto
+            print ( f"Nombre: { contacto . nombre } , Teléfono: { contacto . telefono } , Email: { contacto . email } " )
+
+# Creando instancias de Contacto
+contacto1  =  Contacto ( 'Alice' , '123456789' , 'alice@example.com' )
+contacto2  =  Contacto ( 'Bob' , '987654321' , 'bob@example.com' )
+
+# Creando una instancia de Agenda
+mi_agenda  =  Agenda ()
+
+# Agregando contactos a la agenda
+mi_agenda . agregar_contacto ( contacto1 )
+mi_agenda . agregar_contacto ( contacto2 )
+
+# Mostrando todos los contactos en la agenda
+mi_agenda . mostrar_contactos ()
+ 76 cambios: 76 adiciones y 0 eliminaciones76 
+...atos (POO)/3.1.1-2 - Debe Estructura Datos Personalizada (Inventario Simple) Completo.py
+Número de línea del archivo original	Número de línea de diferencia	Cambio de línea diferencial
+@@ -0,0 +1,76 @@
+Clase  Producto :
+    def  __init__ ( self , id_producto , nombre , cantidad , precio ):
+        ser . id_producto  =  id_producto
+        yo mismo.nombre = nombre​  
+        yo mismo . cantidad  =  cantidad
+        yo mismo . precio  =  precio
+
+    def  __str__ ( yo mismo ):
+        return  f" { self . nombre } , Cantidad: { self . cantidad } , Precio: $ { self . precio } "
+
+clase  Inventario :
+    def  __init__ ( yo mismo ):
+        auto . productos  = {}
+
+    def  agregar_producto ( self , producto ):
+        si  producto . id_producto  en  self . productos :
+            print ( "Error: Producto ya existe." )
+        demás :
+            ser . productos [ producto . id_producto ] =  producto
+
+    def  eliminar_producto ( self , id_producto ):
+        si  id_producto  en  self . productos :
+            del  yo . productos [ id_producto ]
+        demás :
+            print ( "Error: Producto no encontrado." )
+
+    def  actualizar_producto ( self , id_producto , cantidad = Ninguno , precio = Ninguno ):
+        si  id_producto  en  self . productos :
+            Si  cantidad  no es  Ninguna : 
+                ser . productos [ id_producto ]. cantidad  =  cantidad
+            Si  precio  no es  Ninguno : 
+                ser . productos [ id_producto ]. precio  =  precio
+        demás :
+            print ( "Error: Producto no encontrado." )
+
+    def  buscar_producto ( self , nombre ):
+        Para  producto  en  uno mismo . productos . valores ():
+            si  nombre . inferior () en  producto . nombre . más bajo ():
+                imprimir ( producto )
+
+    def  mostrar_inventario ( self ):
+        Para  producto  en  uno mismo . productos . valores ():
+            imprimir ( producto )
+
+def  menú ():
+    inventario  =  Inventario ()
+    mientras sea  verdadero :
+        print ( " \n 1. Agregar Producto \n 2. Eliminar Producto \n 3. Actualizar Producto \n 4. Buscar Producto \n 5. Mostrar Inventario \n 6. Salir" )
+        opcion  =  input ( "Seleccione una opcion: " )
+        si  opcion  ==  '6' :
+            romper
+        elif  opcion  ==  '1' :
+            id_producto  =  input ( "Ingrese el ID del producto: " )
+            nombre  =  input ( "Ingrese el nombre del producto: " )
+            cantidad  =  int ( input ( "Ingrese la cantidad del producto: " ))
+            precio  =  float ( input ( "Ingrese el precio del producto: " ))
+            producto  =  Producto ( id_producto , nombre , cantidad , precio )
+            inventario . agregar_producto ( producto )
+        elif  opcion  ==  '2' :
+            id_producto  =  input ( "Ingrese el ID del producto a eliminar: " )
+            inventario . eliminar_producto ( id_producto )
+        elif  opcion  ==  '3' :
+            id_producto  =  input ( "Ingrese el ID del producto a actualizar: " )
+            cantidad  =  input ( "Ingrese la nueva cantidad (dejar en blanco para no cambiar): " )
+            precio  =  input ( "Ingrese el nuevo precio (dejar en blanco para no cambiar): " )
+            cantidad  =  int ( cantidad ) if  cantidad  else  Ninguna
+            precio  =  float ( precio ) if  precio  else  Ninguno
+            inventario . producto_producto ( id_actualizarproducto , cantidad , precio )
+        elif  opcion  ==  '4' :
+            nombre  =  input ( "Ingrese el nombre del producto a buscar: " )
+            inventario . buscar_producto ( nombre )
+        elif  opcion  ==  '5' :
+            inventario . mostrar_inventario ()
+
+si  __nombre__  ==  "__principal__" :
+    menú ()
+ 70 cambios: 70 adiciones y 0 eliminaciones70 
+...tura de Datos (POO)/3.1.1-2 - Deber Estructura Datos Personalizada (Inventario Simple).py
+Número de línea del archivo original	Número de línea de diferencia	Cambio de línea diferencial
+@@ -0,0 +1,70 @@
+Clase  Producto :
+    def  __init__ ( self , id_producto , nombre , cantidad , precio ):
+        ser . id_producto  =  id_producto
+        yo mismo.nombre = nombre​  
+        yo mismo . cantidad  =  cantidad
+        yo mismo . precio  =  precio
+
+    def  __str__ ( yo mismo ):
+        return  f" { self . nombre } , Cantidad: { self . cantidad } , Precio: $ { self . precio } "
+
+clase  Inventario :
+    def  __init__ ( yo mismo ):
+        auto . productos  = {}
+
+    def  agregar_producto ( self , producto ):
+        si  producto . id_producto  en  self . productos :
+            print ( "Error: Producto ya existe." )
+        demás :
+            ser . productos [ producto . id_producto ] =  producto
+
+    def  eliminar_producto ( self , id_producto ):
+        si  id_producto  en  self . productos :
+            del  yo . productos [ id_producto ]
+        demás :
+            print ( "Error: Producto no encontrado." )
+
+    def  actualizar_producto ( self , id_producto , cantidad = Ninguno , precio = Ninguno ):
+        si  id_producto  en  self . productos :
+            Si  cantidad  no es  Ninguna : 
+                ser . productos [ id_producto ]. cantidad  =  cantidad
+            Si  precio  no es  Ninguno : 
+                ser . productos [ id_producto ]. precio  =  precio
+        demás :
+            print ( "Error: Producto no encontrado." )
+
+    def  buscar_producto ( self , nombre ):
+        Para  producto  en  uno mismo . productos . valores ():
+            si  nombre . inferior () en  producto . nombre . más bajo ():
+                imprimir ( producto )
+
+    def  mostrar_inventario ( self ):
+        Para  producto  en  uno mismo . productos . valores ():
+            imprimir ( producto )
+
+# Interfaz de usuario en la consola
+def  menú ():
+    inventario  =  Inventario ()
+    mientras sea  verdadero :
+        print ( " \n 1. Agregar Producto \n 2. Eliminar Producto \n 3. Actualizar Producto \n 4. Buscar Producto \n 5. Mostrar Inventario \n 6. Salir" )
+        opcion  =  input ( "Seleccione una opcion: " )
+        si  opcion  ==  '6' :
+            romper
+        elif  opcion  ==  '1' :
+            # Agregar producto
+            pass   # Aquí se debe solicitar la información del producto al usuario y llamar a inventario.agregar_producto()
+        elif  opcion  ==  '2' :
+            # Eliminar producto
+            aprobar
+        elif  opcion  ==  '3' :
+            # Actualizar producto
+            aprobar
+        elif  opcion  ==  '4' :
+            # Buscar producto
+            aprobar
+        elif  opcion  ==  '5' :
+            # Mostrar inventario
+            inventario . mostrar_inventario ()
+
+si  __nombre__  ==  "__principal__" :
+    menú ()
